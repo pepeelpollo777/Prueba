@@ -1,0 +1,136 @@
+[gd_scene load_steps=20 format=3 uid="uid://bf60f1vcrnhge"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_my85l"]
+[ext_resource type="Texture2D" uid="uid://7ktritdy7svb" path="res://Player/walk/down/caminar abajo2.png" id="2_x5wfq"]
+[ext_resource type="Texture2D" uid="uid://b4w03tgyqhma6" path="res://Player/walk/left/caminar izquierda2.png" id="3_htcyh"]
+[ext_resource type="Texture2D" uid="uid://c3s1ss4ldmirs" path="res://Player/walk/right/caminar derecha2.png" id="4_8ngup"]
+[ext_resource type="Texture2D" uid="uid://dif6guqyrja0i" path="res://Player/walk/up/caminar arriba2.png" id="5_44vmt"]
+[ext_resource type="Texture2D" uid="uid://bxon6cnqolgg5" path="res://Player/walk/down/caminar abajo1.png" id="6_2n0xa"]
+[ext_resource type="Texture2D" uid="uid://b00ag7tteg0sm" path="res://Player/walk/down/caminar abajo3.png" id="7_eni82"]
+[ext_resource type="Texture2D" uid="uid://d1c1y1vn6m1v" path="res://Player/walk/down/caminar abajo4.png" id="8_jctiu"]
+[ext_resource type="Texture2D" uid="uid://ck1rb4dr4ure0" path="res://Player/walk/left/caminar izquierda1.png" id="9_twf2h"]
+[ext_resource type="Texture2D" uid="uid://gks1pu253k12" path="res://Player/walk/left/caminar izquierda3.png" id="10_dyv8x"]
+[ext_resource type="Texture2D" uid="uid://dhfcwade7782" path="res://Player/walk/left/caminar izquierda4.png" id="11_x0kuq"]
+[ext_resource type="Texture2D" uid="uid://bc1abhan3vmpy" path="res://Player/walk/right/caminar derecha1.png" id="12_16lka"]
+[ext_resource type="Texture2D" uid="uid://syftx5m2cxbn" path="res://Player/walk/right/caminar derecha3.png" id="13_wklxl"]
+[ext_resource type="Texture2D" uid="uid://bvqtpo2p3lb5a" path="res://Player/walk/right/caminar derecha4.png" id="14_mnu6a"]
+[ext_resource type="Texture2D" uid="uid://s0v1mx15ydw5" path="res://Player/walk/up/caminar arriba1.png" id="15_ypdjg"]
+[ext_resource type="Texture2D" uid="uid://cy6tuqr2u5ig2" path="res://Player/walk/up/caminar arriba3.png" id="16_j5q76"]
+[ext_resource type="Texture2D" uid="uid://bce53m24d7b0p" path="res://Player/walk/up/caminar arriba4.png" id="17_em37d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_287aj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x5wfq")
+}],
+"loop": true,
+"name": &"idleD",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_htcyh")
+}],
+"loop": true,
+"name": &"idleL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8ngup")
+}],
+"loop": true,
+"name": &"idleR",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_44vmt")
+}],
+"loop": true,
+"name": &"idleU",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_2n0xa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x5wfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_eni82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jctiu")
+}],
+"loop": true,
+"name": &"walkD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_twf2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_htcyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dyv8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_x0kuq")
+}],
+"loop": true,
+"name": &"walkL",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_16lka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8ngup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wklxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mnu6a")
+}],
+"loop": true,
+"name": &"walkR",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_ypdjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_44vmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_j5q76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_em37d")
+}],
+"loop": true,
+"name": &"walkU",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c05g5"]
+size = Vector2(17, 8)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_my85l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_287aj")
+animation = &"idleD"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 7)
+shape = SubResource("RectangleShape2D_c05g5")
